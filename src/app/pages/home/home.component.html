@@ -1,244 +1,30 @@
 <div class="px-28 max-md:px-10">
+    
     <!-- NAVIGATION BAR -->
-    <nav class="flex justify-between items-center py-4 ">
-        <h1 class="text-blue-600 text-4xl"><span class="font-extrabold text-blue-900">T</span>ournave</h1>
-        <div class="md:hidden block ml-auto md:ml-0">
-            <i class="material-icons ">menu</i>
-        </div>
-        
-        <div class="flex max-md:hidden">
-            <span class="flex items-center gap-2 cursor-pointer" (click)="toggleDiv()">
-                <span>{{devise_actuel().name}}</span>
-                <img src="{{devise_actuel().flag}}" alt="{{devise_actuel().name}} flag" class="w-6 h-4 inline-block" />
-                <i class="material-icons text-2xl -ml-2">keyboard_arrow_down</i>
-            </span>
-            @if (show()) {
-            <div class="absolute mt-8 bg-white">
-                @for (item of devises; track $index) {
-                @if(item.name!==devise_actuel().name){
-                <span class="flex items-center justify-between px-2 gap-2 cursor-pointer" (click)="getDivices(item)">
-                    <span>{{item.name}}</span>
-                    <img src="{{item.flag}}" alt="{{item.name}} flag" class="w-6 h-4 inline-block" />
-                </span>
-                }
-                }
-            </div>
-            }
-
-        </div>
-        <a href="/" class="flex items-center max-md:hidden"><i class="material-icons text-2xl">shopping_cart</i> Mes paniers</a>
-        <div class="flex gap-7">
-            <a href="" class="text-blue-900 px-10 py-2 border-2 border-blue-900 rounded-full max-md:hidden">Se connecter</a>
-            <a href="" class="bg-blue-900 px-10 py-2 rounded-full text-white max-md:hidden">S'inscrire</a>
-        </div>
-    </nav>
+    <app-navigation></app-navigation>
 
     <!-- ACTIVITIES -->
-    <div class="flex items-center border-t-1 border-gray-800 py-3 gap-5 max-md:text-[9px]">
-        <span class="flex items-center gap-1"><i class="material-icons text-2xl ">home</i> Hebergements</span>
-        <span class="flex items-center gap-1"><i class="material-icons text-2xl ">local_taxi</i> Transports
-            locaux</span>
-        <span class="flex items-center gap-1"><i class="material-icons text-2xl ">local_fire_department</i>
-            Activites</span>
-    </div>
+    <app-activities></app-activities>
 
     <!-- DEVIS -->
-
-    <div
-        class="flex flex-col mt-6 rounded-3xl h-[350px] bg-cover bg-center bg-[url('https://static.wixstatic.com/media/512d59_7dc30ee22fda448f9d212b69a428f58e~mv2.jpg/v1/fit/w_361,h_203,q_90,enc_avif,quality_auto/512d59_7dc30ee22fda448f9d212b69a428f58e~mv2.jpg')]">
-        <div class="flex-grow gap-3 flex justify-center flex-col">
-            <span class="ml-16 text-white text-3xl font-bold max-md:text-lg max-md:ml-2 max-md:mt-3">Explorer le monde avec nous <br />et Vivez une
-                experience<br /> inoubliable</span>
-            <button class="bg-blue-900 rounded-md w-fit text-white ml-16 py-1 px-4 max-md:my-3 max-md:m-auto">Demander un devis</button>
-        </div>
-
-        <form class="flex items-center w-full bg-white rounded-xl shadow-md max-md:flex-col">
-            <span class="flex-grow flex items-center gap-3 px-3 py-4 ">
-                <i class="material-icons text-2xl text-[#275259]">flight_takeoff</i>
-                <input type="text" placeholder="Ou allez vous?" class="flex-grow outline-none">
-            </span>
-            <span class="h-9/12 bg-black opacity-25 w-[0.2px]"></span>
-            <span class="flex-grow flex items-center gap-3 px-3 py-4 ">
-                <i class="material-icons text-2xl text-[#275259]">calendar_month</i>
-                <input type="text" placeholder="Date depart - Date arrivee" class="flex-grow outline-none">
-            </span>
-            <span class="h-9/12 bg-black opacity-25 w-[0.2px]"></span>
-            <span class="flex-grow flex items-center gap-3 px-3 py-4 ">
-                <i class="material-icons text-2xl text-[#275259]">person</i>
-                <input type="text" placeholder="Adulte - enfant - chambres" class="flex-grow outline-none">
-            </span>
-            <button type="submit" class="px-6 py-4 text-white bg-blue-900 rounded-r-xl max-md:w-full max-md:rounded-l-xl">Recherche</button>
-        </form>
-    </div>
+    <app-devis></app-devis>
 
     <!-- POPULAIRE -->
-    <div class="mt-12">
-        <h2 class="text-2xl font-bold max-md:text-lg">Les destinations populaires</h2>
-        <p class="max-md:text-[12px]">Voici des idee pour votre prochain voyage</p>
-        <div class="flex flex-grow gap-5 mt-4 max-md:flex-col ">
-            <div
-                class="flex items-end pl-5 pb-5 text-white font-medium text-lg h-60 rounded-xl bg-cover bg-center flex-grow bg-[url('https://makila-production.s3.amazonaws.com/uploads/images/hotels/1725540557-2-8148/miavana_20by_20time_20tide_listing.jpg')]">
-                <span>Nosy be</span>
-            </div>
-            <div
-                class="flex items-end pl-5 pb-5 text-white font-medium text-lg h-60 rounded-xl bg-cover bg-center flex-grow bg-[url('https://www.quizz.biz/uploads/quizz/1831869/medium/1.webp?1725393317')]">
-                <span>Morondava</span>
-            </div>
-        </div>
-        <div class="flex flex-grow gap-5 mt-4 max-md:flex-col">
-            <div
-                class="flex items-end pl-5 pb-5 text-white font-medium text-lg h-60 rounded-xl bg-cover bg-center flex-grow bg-[url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWHkOP6f2pV2JUnY844I5K2nkuLyXCFOhrRepQCuF3Six3mdto')]">
-                <span>Sainte Marie</span>
-            </div>
-            <div
-                class="flex items-end pl-5 pb-5 text-white font-medium text-lg h-60 rounded-xl bg-cover bg-center flex-grow bg-[url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_QTRpuZEApK2VZ0ILruk8HSe0IeVwN_HMyg5jB_IuFaDIgyux')]">
-                <span>Majunga</span>
-            </div>
-            <div
-                class="flex items-end pl-5 pb-5 text-white font-medium text-lg h-60 rounded-xl bg-cover bg-center flex-grow bg-[url('https://cms.moov.mg/uploads/Travellers_Worldwide_isalo_9b766a6728.webp')]">
-                <span>Isalo</span>
-            </div>
-        </div>
-    </div>
+    <app-populaire></app-populaire>
 
     <!-- OFFRE SPECIALE -->
-    <div class="mt-12 flex justify-between p-7 items-center border border-gray-400 max-md:flex-col max-md:gap-5 max-md:p-3">
-        <div class="w-7/12 flex gap-5 flex-col max-md:w-11/12">
-            <h3 class="font-bold text-3xl max-md:text-lg">Offres speciales</h3>
-            <p class="text-xl max-md:text-sm">Profiter de 20% sur votre sejour a Majunga pour toute reservation avant le 30 janvier
-                2025! Ne manquez pas cette offre exclusive!</p>
-            <a href="" class="bg-blue-900 px-7 py-1 text-white w-fit rounded-sm font-bold max-md:px max-md:text-sm">Reduction de 20%</a>
-        </div>
-        <div
-            class="w-3/12 h-48 rounded-xl bg-cover bg-center max-md:w-11/12 bg-[url('https://www.cocolodgemajunga-madagascar.com/wp-content/uploads/2024/05/Baobab-de-majunga.jpg')]">
-        </div>
-    </div>
+    <app-offre-special></app-offre-special>
 
 </div>
 
 <!-- LES FAVORIS -->
-<div class="pl-28 mt-12 max-md:pl-10">
-    <p class="text-3xl font-bold max-md:text-lg max-md:pr-2">Les choix favoris de nos clients pour un sejour parfait</p>
-    <div class="w-full overflow-scroll ff cursor-grab mt-9">
-        <div class="flex w-fit gap-4 overflow-hidden">
-            @for (hotel of hotels; track $index) {
-            <div class=" flex flex-col gap-5 ">
-                <div class="w-full h-60 rounded-t-lg bg-cover bg-center" [style.backgroundImage]="'url(' + hotel.image">
-                </div>
-                <div class="flex flex-wrap border-[1px] border-gray-400 w-72 justify-between py-2 px-2.5 gap-y-2">
-                    <div class="flex flex-wrap justify-between w-full">
-                        <span class="w-8/12 font-bold">{{hotel.name}}</span>
-                        <div class="w-4/12 flex justify-end text-amber-300">
-                            @for (item of getEtoilesArray(hotel); track $index) {
-                            <i class="material-icons text-2xl">star</i>
-                            }
-                        </div>
-                        <span class="w-full flex items-center text-sm text-gray-500">
-                            <i class="material-icons text-sm -ml-2">location_on</i>
-                            {{hotel.localisation}}</span>
-                    </div>
-                    <a class="bg-blue-900 px-5  text-white w-fit rounded-sm font-medium-">Reserver</a>
-                    <span class="text-sm text-gray-500 font-medium">A partir de {{hotel.prix}}$</span>
-                </div>
-            </div>
-            }
-
-
-        </div>
-    </div>
-</div>
+<app-favoris></app-favoris>
 
 <!-- AVIS -->
-
-<div class="mt-12 mb-12 pl-28 max-md:pl-10">
-    <p class="text-3xl font-bold w-full text-center max-md:text-lg">Lisez ce que disent nos clients</p>
-    <div class="w-full overflow-scroll ff cursor-grab mt-9">
-        <div class="flex w-fit gap-4 overflow-hidden">
-            @for (item of avis; track $index) {
-            <div class="flex gap-6 p-2 pb-7 w-[500px] rounded-lg shadow-sm shadow-gray-500 border border-gray-500">
-                <div
-                    class="w-16 h-16 rounded-full bg-cover bg-center bg-[url('https://www.cocolodgemajunga-madagascar.com/wp-content/uploads/2024/05/Baobab-de-majunga.jpg')]">
-                </div>
-                <div class="flex flex-col w-9/12 ">
-                    <span class="font-medium">{{item.nom}}</span>
-                    <span class="text-gray-500">{{item.ville}}</span>
-                    <p class="text-gray-500 text-md ">{{item.commentaire}}</p>
-                </div>
-            </div>
-            }
-        </div>
-    </div>
-</div>
+<app-avis></app-avis>
 
 <!-- FAQ -->
-
-<div class="w-full px-28 pb-14 max-md:px-10">
-    <h3 class="text-3xl font-bold max-md:text-lg">Les questions les plus<br /> frequement poses</h3>
-    <div class="flex items-center justify-between mt-12 py-10 max-md:flex-col max-md:gap-10">
-        <img class="w-64 h-64 max-md:w-36 max-md:h-36 -rotate-45 rounded-2xl"
-            src="https://img.freepik.com/vecteurs-libre/illustration-du-concept-furtif_114360-21688.jpg?t=st=1744350072~exp=1744353672~hmac=b78ef446882de9188d2bcd003d522468ee5984545eabac35f2566172c14a42e0&w=740"
-            alt="">
-        <div class="w-6/12 max-md:w-10/12">
-            @for (item of faqs; track $index) {
-            <div (click)="hideShow(item)" class="cursor-pointer border-b-[1px] border-gray-400 py-3 w-full">
-                <span class="flex items-center justify-between select-none font-medium">{{item.question}}
-                    @if (item.show===false) { <i class="material-icons text-2xl">keyboard_arrow_down</i>}
-                    @else {<i class="material-icons text-2xl">keyboard_arrow_up</i>}
-
-                </span>
-                @if (item.show) {
-                <span class="flex items-center border-l-[1px] border-gray-400 pl-3 mt-2 ml-2">{{item.reponse}}</span>
-                }
-            </div>
-            }
-
-        </div>
-    </div>
-</div>
+<app-faq></app-faq>
 
 <!-- FOOTER -->
-
-<div class="w-full bg-blue-950 py-12 px-28 pb-2 max-md:px-10">
-    <div class="flex justify-between text-white max-sm:flex-col">
-        <div class="flex flex-col gap-2">
-            <span class="mb-10 font-medium text-lg">A propos de nous</span>
-            <a href="">Acceuil</a>
-            <a href="">Les hebergements</a>
-            <a href="">Transports locaux</a>
-            <a href="">Nos promotions</a>
-            <a href="">FAQ</a>
-        </div>
-        <div class="flex flex-col gap-2">
-            <span class="mb-10 font-medium text-lg">Contact</span>
-            <a href="">101 Antananarivo - Madagascar</a>
-            <a href="">tournave0gmail.com</a>
-            <a href="">+261 32 00 000 00</a>
-        </div>
-        <div class="flex flex-col gap-2">
-            <span class="mb-10 font-medium text-lg">Mention légal et politique</span>
-            <a href="">Politique de confidentialité</a>
-            <a href="">Condition général d’utilisation</a>
-            <a href="">Politique des coockie</a>
-        </div>
-    </div>
-
-    <div class="flex justify-between text-white mt-16 border-y-[1px] border-gray-500 py-7 max-sm:flex-col max-sm:gap-5"> 
-        <div class="flex items-center gap-3 max-sm:flex-col ">
-            <span>Envoyer du newsletter</span>
-            <div  class="flex bg-white">
-                <input type="text" placeholder="Votre e-mail" class="px-4 py-1 outline-none text-gray-600">
-                <button class="bg-blue-900 px-4 py-1  text-white m-[1px]">Envoyer</button>
-            </div>
-        </div> 
-        <div class="flex text-white items-center gap-2">
-            <span class="font-medium text-xl">Suivez-nous</span>
-            <img class="w-6 h-6" src="https://img.icons8.com/m_rounded/512/FFFFFF/facebook-new.png" alt="">
-            <img class="w-6 h-6" src="https://img.icons8.com/?size=100&id=SHyLjLUNhdQx&format=png&color=FFFFFF" alt="">
-            <img class="w-6 h-6" src="https://img.icons8.com/?size=100&id=59813&format=png&color=FFFFFF" alt="">
-        </div>
-    </div>
-
-
-    <p class="text-white text-center mt-12 text-sm underline font-medium max-md:text-[9px]">Copyright - 1992-2024 tournave.comTM. Tous droit reserves.</p>
-
-</div>
+<app-footer></app-footer>

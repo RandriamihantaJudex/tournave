@@ -1,0 +1,32 @@
+<nav class="flex justify-between items-center py-4 ">
+    <h1 class="text-blue-600 text-4xl"><span class="font-extrabold text-blue-900">T</span>ournave</h1>
+    <div class="md:hidden block ml-auto md:ml-0">
+        <i class="material-icons ">menu</i>
+    </div>
+    
+    <div class="flex max-md:hidden">
+        <span class="flex items-center gap-2 cursor-pointer" (click)="toggleDiv()">
+            <span>{{devise_actuel().name}}</span>
+            <img src="{{devise_actuel().flag}}" alt="{{devise_actuel().name}} flag" class="w-6 h-4 inline-block" />
+            <i class="material-icons text-2xl -ml-2">keyboard_arrow_down</i>
+        </span>
+        @if (show()) {
+        <div class="absolute mt-8 bg-white">
+            @for (item of devises; track $index) {
+            @if(item.name!==devise_actuel().name){
+            <span class="flex items-center justify-between px-2 gap-2 cursor-pointer" (click)="getDivices(item)">
+                <span>{{item.name}}</span>
+                <img src="{{item.flag}}" alt="{{item.name}} flag" class="w-6 h-4 inline-block" />
+            </span>
+            }
+            }
+        </div>
+        }
+
+    </div>
+    <a href="/" class="flex items-center max-md:hidden"><i class="material-icons text-2xl">shopping_cart</i> Mes paniers</a>
+    <div class="flex gap-7">
+        <a href="" class="text-blue-900 px-10 py-2 border-2 border-blue-900 rounded-full max-md:hidden">Se connecter</a>
+        <a href="" class="bg-blue-900 px-10 py-2 rounded-full text-white max-md:hidden">S'inscrire</a>
+    </div>
+</nav>

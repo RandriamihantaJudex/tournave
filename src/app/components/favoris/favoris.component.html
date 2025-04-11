@@ -1,0 +1,28 @@
+<div class="pl-28 mt-12 max-md:pl-10">
+    <p class="text-3xl font-bold max-md:text-lg max-md:pr-2">Les choix favoris de nos clients pour un sejour parfait</p>
+    <div class="w-full overflow-scroll ff cursor-grab mt-9">
+        <div class="flex w-fit gap-4 overflow-hidden">
+            @for (hotel of hotels; track $index) {
+            <div class=" flex flex-col gap-5 ">
+                <div class="w-full h-60 rounded-t-lg bg-cover bg-center" [style.backgroundImage]="'url(' + hotel.image">
+                </div>
+                <div class="flex flex-wrap border-[1px] border-gray-400 w-72 justify-between py-2 px-2.5 gap-y-2">
+                    <div class="flex flex-wrap justify-between w-full">
+                        <span class="w-8/12 font-bold">{{hotel.name}}</span>
+                        <div class="w-4/12 flex justify-end text-amber-300">
+                            @for (item of getEtoilesArray(hotel); track $index) {
+                            <i class="material-icons text-2xl">star</i>
+                            }
+                        </div>
+                        <span class="w-full flex items-center text-sm text-gray-500">
+                            <i class="material-icons text-sm -ml-2">location_on</i>
+                            {{hotel.localisation}}</span>
+                    </div>
+                    <a class="bg-blue-900 px-5  text-white w-fit rounded-sm font-medium-">Reserver</a>
+                    <span class="text-sm text-gray-500 font-medium">A partir de {{hotel.prix}}$</span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

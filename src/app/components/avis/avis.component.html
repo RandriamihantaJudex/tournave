@@ -1,0 +1,19 @@
+<div class="mt-12 mb-12 pl-28 max-md:pl-10">
+    <p class="text-3xl font-bold w-full text-center max-md:text-lg">Lisez ce que disent nos clients</p>
+    <div class="w-full overflow-scroll ff cursor-grab mt-9">
+        <div class="flex w-fit gap-4 overflow-hidden">
+            @for (item of avis; track $index) {
+            <div class="flex gap-6 p-2 pb-7 w-[500px] rounded-lg shadow-sm shadow-gray-500 border border-gray-500">
+                <div
+                    class="w-16 h-16 rounded-full bg-cover bg-center bg-[url('https://www.cocolodgemajunga-madagascar.com/wp-content/uploads/2024/05/Baobab-de-majunga.jpg')]">
+                </div>
+                <div class="flex flex-col w-9/12 ">
+                    <span class="font-medium">{{item.nom}}</span>
+                    <span class="text-gray-500">{{item.ville}}</span>
+                    <p class="text-gray-500 text-md ">{{item.commentaire}}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
