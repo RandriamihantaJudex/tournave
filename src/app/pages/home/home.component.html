@@ -2,7 +2,10 @@
     <!-- NAVIGATION BAR -->
     <nav class="flex justify-between items-center py-4 ">
         <h1 class="text-blue-600 text-4xl"><span class="font-extrabold text-blue-900">T</span>ournave</h1>
-        <i class="material-icons md:hidden ml-auto">menu</i>
+        <div class="md:hidden block ml-auto md:ml-0">
+            <i class="material-icons ">menu</i>
+        </div>
+        
         <div class="flex max-md:hidden">
             <span class="flex items-center gap-2 cursor-pointer" (click)="toggleDiv()">
                 <span>{{devise_actuel().name}}</span>
